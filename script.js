@@ -20,6 +20,10 @@ function getRandomCard(min, max) {
 }
 
 function startGame() {
+    renderGame();
+}
+
+function renderGame() {
     sumEl.textContent = "Sum: " + sum
     if (sum <= 20) {
         message = "Would you like to draw another card?";
@@ -38,5 +42,5 @@ function getNewCard() {
     const newCard = getRandomCard(2, 11);
     // cardsEl.textContent = "Cards: " + firstCard + " / " + secondCard + " / " + newCard;
     sum += newCard;
-    startGame();
+    renderGame();
 }
