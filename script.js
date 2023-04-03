@@ -1,10 +1,14 @@
 const firstCard = getRandomCard(2, 11);
 const secondCard = getRandomCard(2, 11);
 let sum = firstCard + secondCard;
+let hasBlackJack = false;
+let isAlive = true;
+let message = "";
+
 console.log(firstCard);
 console.log(secondCard);
 console.log(sum);
-checkCards();
+
 function getRandomCard(min, max) {
     const floatRandom = Math.random();
     const difference = max - min;
@@ -13,12 +17,15 @@ function getRandomCard(min, max) {
     return randomWithinRange;
 }
 
-function checkCards() {
+function startGame() {
     if (sum <= 20) {
-        console.log("Would you like to draw another card?");
+        message = "Would you like to draw another card?";
     } else if (sum === 21) {
-        console.log("You have blackjack! You win!");
+        hasBlackJack = true;
+        message = "You have blackjack! You win!";
     } else {
-        console.log("You have gone over. You lose!");
+        isAlive = false;
+        message = "You have gone over. You lose!";
     }
+    console.log(message);
 }
