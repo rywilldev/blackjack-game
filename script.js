@@ -14,7 +14,7 @@ function getRandomCard(min, max) {
 }
 
 function checkCards() {
-    if (sum < 21) {
+    if (sum <= 20) {
         console.log("Would you like to draw another card?");
     } else if (sum === 21) {
         console.log("You have blackjack! You win!");
