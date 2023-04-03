@@ -1,6 +1,6 @@
 const firstCard = getRandomCard(2, 11);
 const secondCard = getRandomCard(2, 11);
-// const newCard = getRandomCard(2, 11);
+let cards = [firstCard, secondCard]; // cards array
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
 let isAlive = true;
@@ -24,6 +24,7 @@ function startGame() {
 }
 
 function renderGame() {
+    cardsEl.textContent = "Cards: " + cards[0] + " / " + cards[1];
     sumEl.textContent = "Sum: " + sum
     if (sum <= 20) {
         message = "Would you like to draw another card?";
@@ -34,13 +35,13 @@ function renderGame() {
         isAlive = false;
         message = "You have gone over. You lose!";
     }
-    cardsEl.textContent = "Cards: " + firstCard + " / " + secondCard;
     messageEl.textContent = message;
 }
 
 function getNewCard() {
     const newCard = getRandomCard(2, 11);
-    // cardsEl.textContent = "Cards: " + firstCard + " / " + secondCard + " / " + newCard;
     sum += newCard;
+    cards.push(newCard);
+    console.log(cards);
     renderGame();
 }
