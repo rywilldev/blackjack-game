@@ -15,7 +15,7 @@ h1 {
     font-style: italic;
 }
 
-#start-el {
+button {
     font-weight: bold;
     color: #016f32;
     width: 150px;
@@ -23,4 +23,5 @@ h1 {
     padding: 5px 0;
     border: none;
     border-radius: 2px;
+    margin: 2px 0;
 }
