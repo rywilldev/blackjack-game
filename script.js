@@ -4,6 +4,8 @@ let sum = firstCard + secondCard;
 let hasBlackJack = false;
 let isAlive = true;
 let message = "";
+let messageEl = document.getElementById("message-el");
+let sumEl = document.getElementById("sum-el");
 
 console.log(firstCard);
 console.log(secondCard);
@@ -20,12 +22,15 @@ function getRandomCard(min, max) {
 function startGame() {
     if (sum <= 20) {
         message = "Would you like to draw another card?";
+        sumEl.textContent = "Sum: " + sum;
     } else if (sum === 21) {
         hasBlackJack = true;
         message = "You have blackjack! You win!";
+        sumEl.textContent = "Sum: " + sum;
     } else {
         isAlive = false;
         message = "You have gone over. You lose!";
+        sumEl.textContent = "Sum: " + sum;
     }
-    console.log(message);
+    messageEl.textContent = message;
 }
