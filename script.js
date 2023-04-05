@@ -7,7 +7,12 @@ let messageEl = document.querySelector("#message-el");
 let cardsEl = document.querySelector("#cards-el");
 let sumEl = document.querySelector("#sum-el");
 let newCardEl = document.querySelector("#newcard-el");
-
+let player = {
+    name: "Ryan",  // player OBJECT
+    chips: 327
+}
+let playerEl = document.querySelector("#player-el");
+playerEl.textContent = player.name + ": $" + player.chips;
 
 function getRandomCard() {
     let randomNumber = Math.floor(Math.random()*13) + 1;
