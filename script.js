@@ -1,5 +1,5 @@
-const firstCard = getRandomCard(2, 11);
-const secondCard = getRandomCard(2, 11);
+const firstCard = getRandomCard();
+const secondCard = getRandomCard();
 let cards = [firstCard, secondCard]; // cards array
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
@@ -11,12 +11,15 @@ let sumEl = document.querySelector("#sum-el");
 let newCardEl = document.querySelector("#newcard-el");
 
 
-function getRandomCard(min, max) {
-    const floatRandom = Math.random();
-    const difference = max - min;
-    const random = Math.round(difference * floatRandom);
-    const randomWithinRange = random + min;
-    return randomWithinRange;
+function getRandomCard() {
+    let randomNumber = Math.floor(Math.random()*13) + 1;
+    if (randomNumber > 10) {
+        return 10;
+    } else if (randomNumber === 1) {
+        return 11;
+    } else {
+        return randomNumber;
+    }
 }
 
 function startGame() {
@@ -42,7 +45,7 @@ function renderGame() {
 }
 
 function getNewCard() {
-    const newCard = getRandomCard(2, 11);
+    const newCard = getRandomCard();
     sum += newCard;
     cards.push(newCard);
     console.log(cards);
