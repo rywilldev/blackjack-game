@@ -1,9 +1,7 @@
-const firstCard = getRandomCard();
-const secondCard = getRandomCard();
-let cards = [firstCard, secondCard]; // cards array
-let sum = firstCard + secondCard;
+let cards = []; // cards array
+let sum = 0;
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 let messageEl = document.querySelector("#message-el");
 let cardsEl = document.querySelector("#cards-el");
@@ -23,6 +21,11 @@ function getRandomCard() {
 }
 
 function startGame() {
+    isAlive = true;
+    let firstCard = getRandomCard();
+    let secondCard = getRandomCard();
+    cards = [firstCard, secondCard];
+    sum = firstCard + secondCard;
     renderGame();
 }
 
